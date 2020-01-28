@@ -6,10 +6,12 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e"
+    "test:e2e": "vue-cli-service test:e2e",
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "tailwindcss": "^1.1.4",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3"
   },

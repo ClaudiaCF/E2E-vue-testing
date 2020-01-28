@@ -1,0 +1,22 @@
+// Valores de breakpoints de tailwind a Ago. 2019 (revisar al crear uno nuevo)
+$size-sm : 640px !default;
+$size-md : 768px !default;
+$size-lg : 1024px !default;
+$size-xl : 1280px !default;
+
+@mixin breakpoint($size) {
+  @if $size == sm {
+    @media screen and ( min-width:$size-sm ) {@content;}
+  }
+  @else { @if $size == md {
+    @media screen and ( min-width:$size-md ) {@content;}
+  }
+  @else { @if $size == lg {
+    @media screen and ( min-width:$size-lg ) {@content;}
+  }
+  @else { @if $size == xl {
+    @media screen and ( min-width:$size-xl ) {@content;}
+  }}}}
+}
+
+// para utilizarlo en scss: @include breakpoint (size) {styles}
