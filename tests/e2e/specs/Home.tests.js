@@ -22,11 +22,11 @@ describe('Home test', () => {
   it('Remove an item', () => {
     cy.visit('/')
     cy.get('table')
-    .find('tr')
+    .find('tbody tr').first()
     .find('td').last()
     .find('button').as('deleteBtn')
 
     cy.get('@deleteBtn').click()
-    cy.get('td').should('not.contain', 'Jose') 
+    cy.get('td').should('not.contain', 'Nico') 
   })
 })

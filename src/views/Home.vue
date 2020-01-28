@@ -72,11 +72,11 @@
     methods: {
       duplicatePerson(person) {
         let count = this.data.filter(x => { return x.name == person.name }).length
-        let title = person.title + 'copy (' + (count + 1) + ')'
+        let title = person.title.split('copy')[0] + ' copy (' + (count + 1) + ')'
         this.data.push({ name: person.name, views: person.views, title: title })
       },
       deletePerson(person) {
-        this.data = this.data.filter(x => { return x.name != person.name })
+        this.data = this.data.filter(x => { return x.title != person.title })
       },
       findPerson() {
 
