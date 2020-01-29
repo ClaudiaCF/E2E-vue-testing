@@ -1,0 +1,8 @@
+{
+    "name": "Claudia",
+    "short_name": "Claudia",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fd9615",
+    "theme_color": "#fd9615"
+  }

@@ -9,18 +9,18 @@
       </select>
       <div class="flex">
         <div class="mr-5">
-          <input v-model="inputLeft" class="w-64 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+          <input v-model="inputLeft" class="inheritInputOne w-64 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
         </div>
         <div class="">
-          <input v-model="inputRight" class="w-64 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+          <input v-model="inputRight" class="inheritInputTwo w-64 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
         </div>
       </div>
-      <button @click="launchModal = true" class="mt-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+      <button @click="launchModal = true" class="btn-launchModal mt-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
         <p>Launch modal</p>
       </button>
       <transition name="openModal">
         <div v-if="launchModal" class="absolute z-50 w-full h-full top-0 left-0 flex items-center justify-center" style="background-color: rgba(0,0,0,.2)">
-          <div  @click="launchModal = false" class="bg-blue-500 w-64 h-64 rounded-full items-center justify-center flex"> 
+          <div  @click="launchModal = false" class="circle-launchModal bg-blue-500 w-64 h-64 rounded-full items-center justify-center flex"> 
             <p class="text-black text-4xl font-bold">Click!</p> 
           </div>
         </div>
@@ -32,7 +32,7 @@
         <label for="nico" class="ml-1 mr-5">Nico</label>
         <input type="checkbox" id="taco" value="Taco" v-model="checkedNames">
         <label for="taco" class="ml-1">Taco</label>
-        <p>Checked names: {{ checkedNames }}</p>
+        <p class="checked-text">Checked names: {{ checkedNames }}</p>
       </div>
       <div class="mt-10">
         <input type="radio" id="carolina" value="Carolina" v-model="radioName">
@@ -45,8 +45,9 @@
       </div>
       <div>
         <input v-model="validatedText" class="shadow appearance-none border mt-10 rounded w-64 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-        id="username" 
+        id="username" name="input-validation"
         type="text" placeholder="Write your DNI like 1111111A">
+        <p>{{validation}}</p>
       </div>
     </div>
    
@@ -59,6 +60,7 @@
       return {
         checkedNames: [],
         radioName: '',
+        validation: 'Not validated',
         selectOption: 'Choose one!',
         launchModal: false,
         inputLeft: '',
@@ -67,12 +69,18 @@
       }
     },
     methods: {
+      checkTextValidation(text){
+        return /^\d{8}[a-zA-Z]$/.test(text)
+      }
       
     },
     watch: {
       'selectOption': function () {
         this.inputLeft = this.selectOption
         this.inputRight = this.selectOption
+      },
+      'validatedText': function () {
+          this.validation =  this.checkTextValidation(this.validatedText) ? 'Validation ok' : 'Not validated'
       }
     }
   }
