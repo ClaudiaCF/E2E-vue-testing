@@ -30,7 +30,7 @@ describe('Home tests', () => {
     cy.get('td').should('not.contain', 'Nico') 
   })
 
-  it('Clone an object', () => {
+  it('Clone an item', () => {
     cy.visit('/')
     cy.get('table')
     .find('tbody tr').first()

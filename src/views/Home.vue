@@ -3,7 +3,7 @@
     <div class="flex flex-col items-center">
       <div class="w-64">
         <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          <label class="filter-label block text-gray-700 text-sm font-bold mb-2" for="username">
             Filter by username
           </label>
           <div class="flex">
