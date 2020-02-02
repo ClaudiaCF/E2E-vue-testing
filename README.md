@@ -15,12 +15,12 @@ npm run serve
 npm run build
 ```
 
-### Run your unit tests
+### Run TestCafé tests
 ```
-npm run test:unit
+npm run testcafe
 ```
 
-### Run your end-to-end tests
+### Run Cypress tests
 ```
-npm run test:e2e
+npm run cy:run
 ```
