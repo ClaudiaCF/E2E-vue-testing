@@ -1,4 +1,4 @@
-# vresi-test
+# E2E-testing
 
 ## Project setup
 ```
